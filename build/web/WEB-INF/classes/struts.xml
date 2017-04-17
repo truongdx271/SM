@@ -1,0 +1,157 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" extends="struts-default">
+        <!--Index-->
+        <action name="index" class="Controller.UserAction">
+            <result name="success">index.jsp</result>
+        </action>
+        
+        <!--login logout-->
+        <action name="login" class="Controller.LoginAction">
+            <result name="success">login.jsp</result>
+        </action>
+        
+        <action name="loginpr" class="Controller.LoginAction" method="login">
+            <result name="success">index.jsp</result>
+            <result name="fail">login.jsp</result>
+        </action>
+        
+        <action name="logout" class="Controller.LoginAction" method="logout">
+            <result name="success">index.jsp</result>
+        </action>
+        <!--!!!!-->
+        
+        <!--USER-->
+        <action name="userListPaging" class="Controller.UserAction" method="getListPaging">
+            <result name="success">user.jsp</result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">index</param>
+            </result>
+        </action>
+        
+        <action name="insertUsr" class="Controller.UserAction" method="insertUsr">
+            <result name="success">insertUsr.jsp</result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">userListPaging</param>
+            </result>
+        </action>
+        
+        <action name="insertUsrPr" class="Controller.UserAction" method="insertUsrPr">
+            <result name="success" type="redirectAction">
+                <param name="actionName">userListPaging</param>
+            </result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">insertUsr</param>
+            </result>
+        </action>
+        
+        <action name="editUsr" class="Controller.UserAction" method="editUsr">
+            <result name="success">editUsr.jsp</result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">userListPaging</param>
+            </result>
+        </action>
+        
+        <action name="editUsrPr" class="Controller.UserAction" method="editUsrPr">
+            <result name="success" type="redirectAction">
+                <param name="actionName">userListPaging</param>
+            </result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">editUsr</param>
+            </result>
+        </action>
+        
+        <action name="deleteUsr" class="Controller.UserAction" method="deleteUsr">
+            <result name="success" type="redirectAction">
+                <param name="actionName">userListPaging</param>
+            </result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">index</param>
+            </result>
+        </action>
+        
+        <action name="profile" class="Controller.UserAction" method="viewProfile">
+            <result name="success">profile.jsp</result>
+        </action>
+        
+        <action name="changeProfile" class="Controller.UserAction" method="changeProfile">
+            <result name="success">changeProfile.jsp</result>
+        </action>
+        
+        <action name="changeProfilePr" class="Controller.UserAction" method="changeProfilePr">
+            <result name="success" type="redirectAction">
+                <param name="actionName">profile</param>
+            </result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">changeProfile</param>
+            </result>
+        </action>
+        <!--!!!-->
+        <!--Message-->
+        <action name="sendMessage" class="Controller.MessageAction" method="sendMessage">
+            <result name="success" type="redirectAction">
+                <param name="actionName">profile</param>
+            </result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">profile</param>
+            </result>
+        </action>
+        
+        <action name="editMessage" class="Controller.MessageAction" method="editMessage">
+            <result name="success" type="redirectAction">
+                <param name="actionName">profile</param>
+            </result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">profile</param>
+            </result>
+        </action>
+        
+        <action name="deleteMesssage" class="Controller.MessageAction" method="deleteMesssage">
+            <result name="success" type="redirectAction">
+                <param name="actionName">profile</param>
+            </result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">profile</param>
+            </result>
+        </action>
+        <!--!!!-->
+        <!--Task-->
+        <action name="getListTask" class="Controller.FileAction" method="getListTask">
+            <result name="success">task.jsp</result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">index</param>
+            </result>
+        </action>
+        
+        <action name="insertTask" class="Controller.FileAction" method="insertTask">
+            <result name="success">insertTask.jsp</result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">getListTask</param>
+            </result>
+        </action>
+        
+        <action name="insertTaskPr" class="Controller.FileAction" method="insertTaskPr">
+            <result name="success" type="redirectAction">
+                <param name="actionName">getListTask</param>
+            </result>
+            <result name="fail" type="redirectAction">
+                <param name="actionName">insertTask</param>
+            </result>
+        </action>
+        
+        <action name="download" class="Controller.FileAction" method="downloadFile">
+            <result name="success" type="stream">
+                <param name="contentType">application/octet-stream</param>
+                <param name="inputName">fileInputStream</param>
+                <param name="contentDisposition">attachment;filename="${fileName}"</param>
+                <param name="bufferSize">1024</param>
+            </result>
+        </action>
+        <!--!!!-->
+        
+    </package>
+</struts>

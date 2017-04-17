@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/Java/TestApp/web/jsp/insertTask.jsp</file>
+            <file>file:/D:/Java/TestApp/src/java/Dao/FileDao.java</file>
+            <file>file:/D:/Java/TestApp/src/java/Controller/FileAction.java</file>
+            <file>file:/D:/Java/TestApp/web/jsp/answer.jsp</file>
+            <file>file:/D:/Java/TestApp/src/java/struts.xml</file>
+            <file>file:/D:/Java/TestApp/src/java/Model/FileObj.java</file>
+            <file>file:/D:/Java/TestApp/web/jsp/task.jsp</file>
+            <file>file:/D:/Java/TestApp/web/jsp/insertUsr.jsp</file>
+            <file>file:/D:/Java/TestApp/src/java/Controller/UserAction.java</file>
+        </group>
+    </open-files>
+</project-private>
